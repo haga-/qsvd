@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,11 +7,68 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.hut8.questionarioqsvd.MainActivity">
+    tools:context="com.hut8.questionarioqsvd.MainActivity"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/hello"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/editTextNome"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+        android:hint="@string/nomeCompleto"/>
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/editTextSexo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="@string/idade"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/textViewSexo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sexo"/>
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/radioButtonF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewSexo"
+            android:text="F"/>
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/radioButtonM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewSexo"
+            android:layout_marginLeft="60dp"
+
+            android:text="M"/>
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/textViewExpVideoCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="@string/expVideoCode"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/textViewExpVideoCodeLegenda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewExpVideoCode"
+            android:text="@string/expVideoCodeLegenda"/>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>
