@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.hut8.questionarioqsvd.MainActivity"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/editTextNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nomeCompleto"
+        android:layout_marginBottom="10dp"/>
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/editTextSexo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="@string/idade"
+        android:layout_marginBottom="10dp"/>
+
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/textViewSexo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sexo"
+        android:layout_marginBottom="10dp"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/radioButtonF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="F"/>
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/radioButtonM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="48dp"
+            android:text="M"/>
+    </RadioGroup>
+
+
+    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/android_material_design_spinner"
+        android:hint="Material Design Spinner"
+        android:textColorHint="#05ab9a"
+        app:met_floatingLabel="normal" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/textViewExpVideoCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="@string/expVideoCode"/>
+
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/textViewExpVideoCodeLegenda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@id/textViewExpVideoCode"
+            android:text="@string/expVideoCodeLegenda" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

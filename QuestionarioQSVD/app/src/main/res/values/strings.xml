@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Questionario QSVD</string>
+    <string name="nomeCompleto">Nome Completo*</string>
+    <string name="idade">Idade*</string>
+    <string name="sexo">Sexo:</string>
+    <string name="escolaridade">Escolaridade:</string>
+    <string name="expVideoCode">Experiência com Codificação de Vídeos:</string>
+    <string name="expVideoCodeLegenda">1 (Nenhuma) - 5 (Expert)</string>
+</resources>
