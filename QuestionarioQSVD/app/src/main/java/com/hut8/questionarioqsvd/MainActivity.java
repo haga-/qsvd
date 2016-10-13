@@ -28,11 +28,10 @@ public class MainActivity extends AppCompatActivity {
 
         SPINNERLIST = getResources().getStringArray(R.array.escolaridade);
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_dropdown_item_1line, SPINNERLIST);
-        materialDesignSpinner = (MaterialBetterSpinner)
-                findViewById(R.id.android_material_design_spinner);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, SPINNERLIST);
+        materialDesignSpinner = (MaterialBetterSpinner) findViewById(R.id.android_material_design_spinner);
         materialDesignSpinner.setAdapter(arrayAdapter);
+
         materialDesignSpinner.setUnderlineColor(getResources().getColor(R.color.colorAccent));
         materialDesignSpinner.setOnClickListener(new View.OnClickListener() {
             @Override
