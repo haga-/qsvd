@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_avaliacao"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.hut8.questionarioqsvd.AvaliacaoActivity">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/labelQualidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/diminuicaoQualidadeVideo"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="16sp"
+        />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/labelQualidade">
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/avaliacaoImperceptivel"
+            android:layout_marginBottom="10dp"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/avaliacaoPerceptivel"
+            android:layout_marginBottom="10dp"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/avaliacaoIncomodaPouco"
+            android:layout_marginBottom="10dp"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/avaliacaoIncomoda"
+            android:layout_marginBottom="10dp"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/avaliacaoIncomodaMuito"
+            android:layout_marginBottom="10dp"/>
+    </RadioGroup>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/buttonProximoIshihara"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/proximo"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:shadowRadius="2"
+        android:elevation="1dp" />
+
+</RelativeLayout>
