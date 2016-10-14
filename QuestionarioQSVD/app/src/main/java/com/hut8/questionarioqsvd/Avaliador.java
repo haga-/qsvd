@@ -34,7 +34,7 @@ public class Avaliador {
         return escolaridade;
     }
 
-    public String getSexo() {
+    public int getSexo() {
         return sexo;
     }
 
