@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Questionario QSVD</string>
+    <string name="nomeCompleto">Nome Completo*</string>
+    <string name="idade">Idade*</string>
+    <string name="sexo">Sexo:</string>
+    <string name="escolaridade">Escolaridade:</string>
+    <string name="expVideoCode">Experiência com Codificação de Vídeos:</string>
+    <string name="expVideoCodeLegenda">1 (Nenhuma) - 5 (Expert)</string>
+    <string name="proximo">Próximo</string>
+    <string-array name="escolaridade">
+        <item>Fundamental Completo</item>
+        <item>Médio Completo</item>
+        <item>Graduação em Andamento</item>
+        <item>Graduação Completa</item>
+        <item>Pós-Graduação em Andamento</item>
+        <item>Pós-Graduação Completa</item>
+    </string-array>
+
+    <string name="ishihara">Insira o número que você enxerga.</string>
+    <string name="ishiharaImgDescription">Imagem que contém vários pontos coloridos formando algum número com o objetivo de testar se o avaliador não possui daltonismo.</string>
+
+    <string name="diminuicaoQualidadeVideo">Diminuição da Qualidade do Vídeo:</string>
+    <string name="avaliacaoImperceptivel">Imperceptível</string>
+    <string name="avaliacaoPerceptivel">Perceptível mas não incomoda</string>
+    <string name="avaliacaoIncomodaPouco">Incomoda um pouco</string>
+    <string name="avaliacaoIncomoda">Incomoda</string>
+    <string name="avaliacaoIncomodaMuito">Incomoda muito</string>
+
+</resources>

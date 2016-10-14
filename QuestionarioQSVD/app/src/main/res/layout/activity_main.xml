@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.hut8.questionarioqsvd.MainActivity"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:rsv="http://schemas.android.com/apk/res-auto" >
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/editTextNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nomeCompleto"
+        android:layout_marginBottom="10dp"/>
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/editTextIdade"
+        android:layout_below="@id/editTextNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="@string/idade"
+        android:layout_marginBottom="10dp"/>
+
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/textViewSexo"
+        android:layout_below="@id/editTextIdade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sexo"
+        android:layout_marginBottom="10dp"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroupSexo"
+        android:layout_below="@id/textViewSexo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/radioButtonF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="F"/>
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/radioButtonM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="48dp"
+            android:text="M"/>
+    </RadioGroup>
+
+
+    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+        android:id="@+id/android_material_design_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radioGroupSexo"
+        android:hint="@string/escolaridade"
+        android:textColorHighlight="@color/colorAccent"
+        android:textColorHint="#05ab9a"
+        app:met_floatingLabel="normal"
+        android:layout_marginBottom="10dp"/>
+
+
+
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/textViewExpVideoCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="@string/expVideoCode"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/android_material_design_spinner"/>
+
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/textViewExpVideoCodeLegenda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/textViewExpVideoCode"
+        android:text="@string/expVideoCodeLegenda"/>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="4"
+        android:progress="1"
+        android:layout_below="@id/textViewExpVideoCodeLegenda"
+        android:layout_marginBottom="10dp"/>
+
+
+
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/buttonProximo"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/proximo"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:shadowRadius="2"
+        android:elevation="1dp" />
+
+</RelativeLayout>
