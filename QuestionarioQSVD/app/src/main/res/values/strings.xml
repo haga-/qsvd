@@ -18,6 +18,8 @@
 
     <string name="ishihara">Insira o número que você enxerga.</string>
     <string name="ishiharaImgDescription">Imagem que contém vários pontos coloridos formando algum número com o objetivo de testar se o avaliador não possui daltonismo.</string>
+    <string name="nao_enxergo">Não enxergo nenhum número</string>
+    <string name="validacaoIshihara">Por favor, insira o número na imagem ou marque a opção acima.</string>
 
     <string name="diminuicaoQualidadeVideo">Diminuição da Qualidade do Vídeo:</string>
     <string name="avaliacaoImperceptivel">Imperceptível</string>
@@ -25,6 +27,5 @@
     <string name="avaliacaoIncomodaPouco">Incomoda um pouco</string>
     <string name="avaliacaoIncomoda">Incomoda</string>
     <string name="avaliacaoIncomodaMuito">Incomoda muito</string>
-    <string name="nao_enxergo">Não enxergo nenhum número</string>
 
 </resources>
