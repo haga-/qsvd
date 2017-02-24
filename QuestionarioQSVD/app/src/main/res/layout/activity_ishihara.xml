@@ -26,6 +26,13 @@
         android:hint="@string/ishihara"
         android:layout_below="@id/imageIshihara"/>
 
+    <android.support.v7.widget.AppCompatCheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/nao_enxergo"
+        android:textColor="@color/colorSecondaryText"
+        android:layout_below="@id/editTextIshihara"/>
+
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/buttonProximoIshihara"
         style="@style/Widget.AppCompat.Button.Colored"

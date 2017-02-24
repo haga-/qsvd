@@ -25,5 +25,6 @@
     <string name="avaliacaoIncomodaPouco">Incomoda um pouco</string>
     <string name="avaliacaoIncomoda">Incomoda</string>
     <string name="avaliacaoIncomodaMuito">Incomoda muito</string>
+    <string name="nao_enxergo">Não enxergo nenhum número</string>
 
 </resources>
