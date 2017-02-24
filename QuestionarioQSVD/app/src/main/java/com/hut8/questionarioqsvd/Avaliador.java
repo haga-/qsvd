@@ -1,6 +1,11 @@
 package com.hut8.questionarioqsvd;
 
 
+import android.util.JsonWriter;
+
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
 /**
  * Created by erick on 13/10/16.
  */
@@ -53,4 +58,30 @@ public class Avaliador {
     public int[] getAvaliacoes() {
         return avaliacoes;
     }
+
+    public void writeToJSON(OutputStreamWriter out) throws IOException {
+        JsonWriter writer = new JsonWriter(out);
+        writer.setIndent("  ");
+        writer.beginObject();
+
+
+        writer.name("nome").value(nome);
+        writer.name("idade").value(idade);
+        writer.name("escolaridade").value(escolaridade);
+        writer.name("experiencia").value(experiencia);
+        writer.name("respostaIshihara").value(respostaIshihara);
+        writer.name("sexo").value(sexo == SEXO_FEMININO ? "F" : "M");
+
+        writer.name("avaliacoes");
+        writer.beginArray();
+        for (int avaliacao : avaliacoes){
+            writer.value(avaliacao);
+        }
+        writer.endArray();
+
+
+        writer.endObject();
+        writer.close();
+    }
+
 }
