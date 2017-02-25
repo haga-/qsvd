@@ -81,6 +81,9 @@ public class Avaliador {
 
 
         writer.endObject();
+        // TODO : Isso não deveria estar aqui.
+        // Se for ser utilizado pra uma lista de avaliadores, um outro método que escreve json deve chamar este e criar um outro objeto(JSON) lá
+        out.write("\n");
         writer.close();
     }
 

@@ -1,10 +1,15 @@
 package com.hut8.questionarioqsvd;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     SeekBar seekBar;
     RadioGroup radioGroup;
     Avaliador avaliador;
+
+    final static int PERMISSAO_GRAVAR_ARQUIVO = 12;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,22 +102,17 @@ public class MainActivity extends AppCompatActivity {
                 builder.setMessage("Salvar dados no sd?")
                         .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                try {
-                                    File myFile = new File(Environment.getExternalStorageDirectory(), "notice_me.txt");
-                                    myFile.createNewFile();
-                                    // FileOutputStream fOut = new FileOutputStream(myFile);
-                                    FileOutputStream fOut = openFileOutput(myFile.toString(), MODE_APPEND );
-                                    OutputStreamWriter myOutWriter = new OutputStreamWriter(fOut, "UTF-8");
-
-                                    avaliador.writeToJSON(myOutWriter);
-
-                                    myOutWriter.close();
-                                    fOut.close();
-                                    Toast.makeText(MainActivity.this, "Escreveu no SD", Toast.LENGTH_SHORT).show();
+                                if (ContextCompat.checkSelfPermission(MainActivity.this,
+                                        Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                                    ActivityCompat.requestPermissions(MainActivity.this,
+                                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                                            PERMISSAO_GRAVAR_ARQUIVO);
                                 }
-                                catch (Exception e) {
-                                    Toast.makeText(MainActivity.this, e.getMessage(),Toast.LENGTH_SHORT).show();
+                                else {
+                                    writeToFile();
                                 }
+
+
                             }
                         })
                         .setNegativeButton("Não", new DialogInterface.OnClickListener() {
@@ -124,6 +126,60 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void writeToFile(){
+        try {
+            File myFile = new File(Environment.getExternalStorageDirectory(), "notice_me.txt");
+            FileOutputStream fOut;
+            if (!myFile.exists()) {
+                myFile.createNewFile();
+                fOut = new FileOutputStream(myFile);
+            }
+            else {
+                Log.d("write_to_file", "writeToFile: ja existe file");
+                fOut = new FileOutputStream(myFile, true); //openFileOutput(myFile.getName(), Context.MODE_APPEND);
+            }
+
+            OutputStreamWriter myOutWriter = new OutputStreamWriter(fOut, "UTF-8");
+
+            avaliador = new Avaliador(editTextNome.getText().toString(),
+                    editTextIdade.getText().toString(),
+                    materialDesignSpinner.getText().toString(),
+                    radioGroup.getCheckedRadioButtonId() == R.id.radioButtonF ? Avaliador.SEXO_FEMININO : Avaliador.SEXO_MASCULINO,
+                    seekBar.getProgress());
+
+            avaliador.writeToJSON(myOutWriter);
+
+            myOutWriter.close();
+            fOut.close();
+            Toast.makeText(MainActivity.this, "Escreveu no SD", Toast.LENGTH_SHORT).show();
+        }
+        catch (Exception e) {
+            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSAO_GRAVAR_ARQUIVO: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    writeToFile();
+
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+
+                }
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
     }
 
     @Override
