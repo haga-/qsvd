@@ -1,5 +1,7 @@
 package com.hut8.questionarioqsvd;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,6 +36,7 @@ public class AvaliacaoActivity extends AppCompatActivity {
                     RadioButton bttn = (RadioButton) radioGroup.getChildAt(radioId);
                     String avaliacao = (String) bttn.getText();
                     Log.i("Log", avaliacao);
+                    //finalizarActivity() ?
                 } else {
                     Toast.makeText(getApplicationContext(), "Por favor, selecione uma das opções.", Toast.LENGTH_SHORT).show();
                 }
@@ -41,6 +44,14 @@ public class AvaliacaoActivity extends AppCompatActivity {
         });
 
     }
+    /*
+    void finalizaActitivity(){
+        Intent returnIntent = new Intent();
+        returnIntent.putExtra(MainActivity.AVALIACAO_DO_VIDEO,avaliacoes);
+        setResult(Activity.RESULT_OK, returnIntent);
+        finish();
+    }
+    */
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
