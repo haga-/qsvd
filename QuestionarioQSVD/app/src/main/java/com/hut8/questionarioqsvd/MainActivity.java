@@ -27,6 +27,8 @@ import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -147,12 +149,6 @@ public class MainActivity extends AppCompatActivity {
 
             OutputStreamWriter myOutWriter = new OutputStreamWriter(fOut, "UTF-8");
 
-            avaliador = new Avaliador(editTextNome.getText().toString(),
-                    editTextIdade.getText().toString(),
-                    materialDesignSpinner.getText().toString(),
-                    radioGroup.getCheckedRadioButtonId() == R.id.radioButtonF ? Avaliador.SEXO_FEMININO : Avaliador.SEXO_MASCULINO,
-                    seekBar.getProgress());
-
             avaliador.writeToJSON(myOutWriter);
 
             myOutWriter.close();
@@ -203,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
                 for(String a : avaliacoes) {
                     Log.d("Main.OnResult", "onActivityResult: " + a);
                 }
-                 avaliador.setAvaliacoes(avaliacoes);
+                 avaliador.setAvaliacoes(Arrays.copyOf(avaliacoes, avaliacoes.length));
             }
         }
         else if(requestCode == LER_RESPOSTA_ISHIHARA){
