@@ -59,6 +59,10 @@ public class Avaliador {
         return avaliacoes;
     }
 
+    public void setAvaliacoes(String[] avaliacoes) {
+        this.avaliacoes = avaliacoes;
+    }
+
     public void writeToJSON(OutputStreamWriter out) throws IOException {
         JsonWriter writer = new JsonWriter(out);
         writer.setIndent("  ");
@@ -86,5 +90,4 @@ public class Avaliador {
         out.write("\n");
         writer.close();
     }
-
 }
