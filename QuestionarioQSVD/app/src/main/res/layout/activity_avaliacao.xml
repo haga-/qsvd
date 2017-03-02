@@ -23,7 +23,8 @@
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/labelQualidade">
+        android:layout_below="@id/labelQualidade"
+        android:id="@+id/radioGroupMOS">
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
