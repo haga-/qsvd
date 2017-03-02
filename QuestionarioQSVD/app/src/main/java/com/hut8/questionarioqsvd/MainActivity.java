@@ -89,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
                     escolaridade = materialDesignSpinner.getText().toString();
                     sexo = radioGroup.getCheckedRadioButtonId() == R.id.radioButtonF ? Avaliador.SEXO_FEMININO : Avaliador.SEXO_MASCULINO;
                     avaliador = new Avaliador(editTextNome.getText().toString(), editTextIdade.getText().toString(),escolaridade, sexo, seekBar.getProgress());
-                    Intent intent = new Intent(MainActivity.this, IshiharaActivity.class);
-                    startActivityForResult(intent, LER_RESPOSTA_ISHIHARA);
+                    Intent intent = new Intent(MainActivity.this, AvaliacaoActivity.class);
+                    startActivityForResult(intent, LER_RESPOSTA_FORMULARIO);
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "Por favor, preencha todos os dados.", Toast.LENGTH_SHORT).show();
@@ -199,8 +199,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == LER_RESPOSTA_FORMULARIO){
             if(resultCode == RESULT_OK){
-                int avalicaoDoVideo = data.getIntExtra(AVALIACAO_DO_VIDEO, -1);
-
+                String[] avaliacoes = data.getStringArrayExtra(AVALIACAO_DO_VIDEO);
+                for(String a : avaliacoes) {
+                    Log.d("Main.OnResult", "onActivityResult: " + a);
+                }
+                 avaliador.setAvaliacoes(avaliacoes);
             }
         }
         else if(requestCode == LER_RESPOSTA_ISHIHARA){
