@@ -15,7 +15,7 @@ public class Avaliador {
     public static final int SEXO_FEMININO = 2;
     private String nome, idade, escolaridade;
     private int experiencia, respostaIshihara, sexo;
-    private int avaliacoes[];
+    private String avaliacoes[];
 
     public Avaliador(String nome, String idade, String escolaridade, int sexo, int experiencia) {
         this.nome = nome;
@@ -24,7 +24,7 @@ public class Avaliador {
         this.sexo = sexo;
         this.experiencia = experiencia;
         // TODO
-        avaliacoes = new int[30]; // quantas serão??
+        avaliacoes = new String[8]; // quantas serão??
     }
 
     public String getNome() {
@@ -55,7 +55,7 @@ public class Avaliador {
         this.respostaIshihara = respostaIshihara;
     }
 
-    public int[] getAvaliacoes() {
+    public String[] getAvaliacoes() {
         return avaliacoes;
     }
 
@@ -74,7 +74,7 @@ public class Avaliador {
 
         writer.name("avaliacoes");
         writer.beginArray();
-        for (int avaliacao : avaliacoes){
+        for (String avaliacao : avaliacoes){
             writer.value(avaliacao);
         }
         writer.endArray();
