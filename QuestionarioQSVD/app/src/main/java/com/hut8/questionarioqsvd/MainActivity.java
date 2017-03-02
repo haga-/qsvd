@@ -38,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
     Avaliador avaliador;
 
     final static int PERMISSAO_GRAVAR_ARQUIVO = 12;
+    final static int LER_RESPOSTA_FORMULARIO = 13;
+    static final int LER_RESPOSTA_ISHIHARA = 14;
+    final static String AVALIACAO_DO_VIDEO = "avaliacao_do_video";
+    static final String RESPOSTA_ISHIHARA = "resposta_ishihara";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                     sexo = radioGroup.getCheckedRadioButtonId() == R.id.radioButtonF ? Avaliador.SEXO_FEMININO : Avaliador.SEXO_MASCULINO;
                     avaliador = new Avaliador(editTextNome.getText().toString(), editTextIdade.getText().toString(),escolaridade, sexo, seekBar.getProgress());
                     Intent intent = new Intent(MainActivity.this, IshiharaActivity.class);
-                    startActivity(intent);
+                    startActivityForResult(intent, LER_RESPOSTA_ISHIHARA);
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "Por favor, preencha todos os dados.", Toast.LENGTH_SHORT).show();
@@ -189,5 +193,21 @@ public class MainActivity extends AppCompatActivity {
         materialDesignSpinner.setUnderlineColor(getResources().getColor(R.color.colorAccent));
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == LER_RESPOSTA_FORMULARIO){
+            if(resultCode == RESULT_OK){
+                int avalicaoDoVideo = data.getIntExtra(AVALIACAO_DO_VIDEO, -1);
+
+            }
+        }
+        else if(requestCode == LER_RESPOSTA_ISHIHARA){
+            if(resultCode == RESULT_OK){
+                String resultadoIshihara = data.getStringExtra(RESPOSTA_ISHIHARA);
+            }
+
+        }
     }
 }
