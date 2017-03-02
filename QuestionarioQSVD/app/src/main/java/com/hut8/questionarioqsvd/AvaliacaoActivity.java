@@ -10,14 +10,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 
 public class AvaliacaoActivity extends AppCompatActivity {
     RadioGroup radioGroup;
 
     final static int N_AVALIACOES = 8;
+    final static String stringAvalicao = "Avaliação número ";
 
     String avaliacoes[] = new String[N_AVALIACOES];
     int cont = 0;
@@ -28,6 +29,9 @@ public class AvaliacaoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_avaliacao);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        final TextView labelAvaliacao = (TextView) findViewById(R.id.labelAvaliacao);
+        labelAvaliacao.setText(stringAvalicao+String.valueOf(cont+1));
 
         radioGroup = (RadioGroup) findViewById(R.id.radioGroupMOS);
 
@@ -53,11 +57,12 @@ public class AvaliacaoActivity extends AppCompatActivity {
                         Intent returnIntent = new Intent();
                         returnIntent.putExtra(MainActivity.AVALIACAO_DO_VIDEO, avaliacoes);
                         setResult(Activity.RESULT_OK, returnIntent);
-                        Log.d("finaliza", "finalizaActivity: setou result");
                         finish();
                     }
 
                     //
+                    radioGroup.clearCheck();
+                    labelAvaliacao.setText(stringAvalicao+String.valueOf(cont+1));
                 } else {
                     Toast.makeText(getApplicationContext(), "Por favor, selecione uma das opções.", Toast.LENGTH_SHORT).show();
                 }
