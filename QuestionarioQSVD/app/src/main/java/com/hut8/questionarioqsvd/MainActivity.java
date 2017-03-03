@@ -91,8 +91,25 @@ public class MainActivity extends AppCompatActivity {
                     escolaridade = materialDesignSpinner.getText().toString();
                     sexo = radioGroup.getCheckedRadioButtonId() == R.id.radioButtonF ? Avaliador.SEXO_FEMININO : Avaliador.SEXO_MASCULINO;
                     avaliador = new Avaliador(editTextNome.getText().toString(), editTextIdade.getText().toString(),escolaridade, sexo, seekBar.getProgress());
-                    Intent intent = new Intent(MainActivity.this, AvaliacaoActivity.class);
-                    startActivityForResult(intent, LER_RESPOSTA_FORMULARIO);
+
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setMessage(getResources().getString(R.string.texto_avaliacao))
+                            .setPositiveButton("Começar", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    Intent intent = new Intent(MainActivity.this, AvaliacaoActivity.class);
+                                    startActivityForResult(intent, LER_RESPOSTA_FORMULARIO);
+                                }
+                            })
+                            .setNegativeButton("Espere", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    // User cancelled the dialog
+                                }
+                            });
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "Por favor, preencha todos os dados.", Toast.LENGTH_SHORT).show();
