@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button buttonSave = (Button) findViewById(R.id.buttonSave);
+        buttonSave.setVisibility(View.GONE);
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
