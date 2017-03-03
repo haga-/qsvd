@@ -48,7 +48,6 @@ public class AvaliacaoActivity extends AppCompatActivity {
                     String avaliacao = (String) bttn.getText();
 
                     Log.i("Log", avaliacao);
-                    //
                     avaliacoes[cont] = avaliacao;
                     ++cont;
                     Log.d("avaliacao", "onClick: "+ cont );
@@ -59,10 +58,10 @@ public class AvaliacaoActivity extends AppCompatActivity {
                         setResult(Activity.RESULT_OK, returnIntent);
                         finish();
                     }
-
-                    //
-                    radioGroup.clearCheck();
-                    labelAvaliacao.setText(stringAvalicao+String.valueOf(cont+1));
+                    else {
+                        radioGroup.clearCheck();
+                        labelAvaliacao.setText(stringAvalicao + String.valueOf(cont + 1));
+                    }
                 } else {
                     Toast.makeText(getApplicationContext(), "Por favor, selecione uma das opções.", Toast.LENGTH_SHORT).show();
                 }
