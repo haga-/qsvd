@@ -200,6 +200,16 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("Main.OnResult", "onActivityResult: " + a);
                 }
                  avaliador.setAvaliacoes(Arrays.copyOf(avaliacoes, avaliacoes.length));
+                Log.d("main", "voltou no onresult");
+                if (ContextCompat.checkSelfPermission(MainActivity.this,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(MainActivity.this,
+                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                            PERMISSAO_GRAVAR_ARQUIVO);
+                }
+                else {
+                    writeToFile();
+                }
             }
         }
         else if(requestCode == LER_RESPOSTA_ISHIHARA){
