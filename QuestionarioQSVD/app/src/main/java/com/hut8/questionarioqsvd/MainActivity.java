@@ -229,6 +229,12 @@ public class MainActivity extends AppCompatActivity {
                     writeToFile();
                 }
             }
+            editTextNome.setText("");
+            editTextIdade.setText("");
+            radioGroup.clearCheck();
+            materialDesignSpinner.setText("");
+            materialDesignSpinner.dismissDropDown();
+            seekBar.setProgress(-1);
         }
         else if(requestCode == LER_RESPOSTA_ISHIHARA){
             if(resultCode == RESULT_OK){
