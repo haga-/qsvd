@@ -235,6 +235,18 @@ public class MainActivity extends AppCompatActivity {
             materialDesignSpinner.setText("");
             materialDesignSpinner.dismissDropDown();
             seekBar.setProgress(-1);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setMessage("As informações foram salvas no sistema.\nObrigado pela sua participação.")
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                        }
+                    });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
+
         }
         else if(requestCode == LER_RESPOSTA_ISHIHARA){
             if(resultCode == RESULT_OK){
