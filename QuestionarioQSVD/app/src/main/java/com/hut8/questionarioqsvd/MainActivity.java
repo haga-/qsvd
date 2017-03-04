@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void writeToFile(){
         try {
-            File myFile = new File(Environment.getExternalStorageDirectory(), "notice_me.txt");
+            File myFile = new File(Environment.getExternalStorageDirectory(), "avaliacoes.txt");
             FileOutputStream fOut;
             if (!myFile.exists()) {
                 myFile.createNewFile();
