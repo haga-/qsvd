@@ -2,8 +2,6 @@ package com.hut8.questionarioqsvd;
 
 import android.Manifest;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -27,7 +25,6 @@ import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,11 +36,15 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup radioGroup;
     Avaliador avaliador;
 
+    final static int N_AVALIACOES_VIDEO = 8;
+    final static int N_AVALIACOES_ISHIHARA = 9;
+
     final static int PERMISSAO_GRAVAR_ARQUIVO = 12;
     final static int LER_RESPOSTA_FORMULARIO = 13;
     static final int LER_RESPOSTA_ISHIHARA = 14;
+
     final static String AVALIACAO_DO_VIDEO = "avaliacao_do_video";
-    static final String RESPOSTA_ISHIHARA = "resposta_ishihara";
+    static final String RESPOSTAS_ISHIHARA = "respostas_ishihara";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,15 +91,21 @@ public class MainActivity extends AppCompatActivity {
                         seekBar.getProgress() >= 0){
                     escolaridade = materialDesignSpinner.getText().toString();
                     sexo = radioGroup.getCheckedRadioButtonId() == R.id.radioButtonF ? Avaliador.SEXO_FEMININO : Avaliador.SEXO_MASCULINO;
-                    avaliador = new Avaliador(editTextNome.getText().toString(), editTextIdade.getText().toString(),escolaridade, sexo, seekBar.getProgress());
+                    avaliador = new Avaliador(N_AVALIACOES_ISHIHARA, N_AVALIACOES_VIDEO,
+                                            editTextNome.getText().toString(),
+                                            editTextIdade.getText().toString(),
+                                            escolaridade, sexo,
+                                            seekBar.getProgress());
 
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                     builder.setMessage(getResources().getString(R.string.texto_avaliacao))
                             .setPositiveButton("Começar", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
-                                    Intent intent = new Intent(MainActivity.this, AvaliacaoActivity.class);
-                                    startActivityForResult(intent, LER_RESPOSTA_FORMULARIO);
+                                    Intent intent = new Intent(MainActivity.this, IshiharaActivity.class);
+                                    startActivityForResult(intent, LER_RESPOSTA_ISHIHARA);
+                                    // primeiro ishihara
+                                    // depois avaliação de video, começando no retorno desta, no onResult
                                 }
                             })
                             .setNegativeButton("Espere", new DialogInterface.OnClickListener() {
@@ -171,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
 
             myOutWriter.close();
             fOut.close();
-            Toast.makeText(MainActivity.this, "Escreveu no SD", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Gravou no arquivo", Toast.LENGTH_SHORT).show();
         }
         catch (Exception e) {
             Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -237,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
             seekBar.setProgress(-1);
 
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-            builder.setMessage("As informações foram salvas no sistema.\nObrigado pela sua participação.")
+            builder.setMessage(R.string.obrigado)
                     .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
 
@@ -250,7 +257,10 @@ public class MainActivity extends AppCompatActivity {
         }
         else if(requestCode == LER_RESPOSTA_ISHIHARA){
             if(resultCode == RESULT_OK){
-                String resultadoIshihara = data.getStringExtra(RESPOSTA_ISHIHARA);
+                int[] respostas = data.getIntArrayExtra(RESPOSTAS_ISHIHARA);
+                avaliador.setRespostasIshihara(respostas);
+                Intent intent = new Intent(MainActivity.this, AvaliacaoActivity.class);
+                startActivityForResult(intent, LER_RESPOSTA_FORMULARIO);
             }
 
         }

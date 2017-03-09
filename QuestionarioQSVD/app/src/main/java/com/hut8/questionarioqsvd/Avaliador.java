@@ -13,11 +13,15 @@ import java.io.OutputStreamWriter;
 public class Avaliador {
     public static final int SEXO_MASCULINO = 1;
     public static final int SEXO_FEMININO = 2;
+    private int qntAvaliacoesVideo, qntTesteIshihara;
     private String nome, idade, escolaridade;
-    private int experiencia, respostaIshihara, sexo;
+    private int experiencia, sexo;
+    private int[] respostasIshihara;
     private String avaliacoes[];
 
-    public Avaliador(String nome, String idade, String escolaridade, int sexo, int experiencia) {
+    public Avaliador(int qntTesteIshihara, int qntAvaliacoesVideo, String nome, String idade, String escolaridade, int sexo, int experiencia) {
+        this.qntTesteIshihara = qntTesteIshihara;
+        this.qntAvaliacoesVideo = qntAvaliacoesVideo;
         this.nome = nome;
         this.idade = idade;
         this.escolaridade = escolaridade;
@@ -47,12 +51,12 @@ public class Avaliador {
         return experiencia;
     }
 
-    public int getRespostaIshihara() {
-        return respostaIshihara;
+    public int[] getRespostaIshihara() {
+        return respostasIshihara;
     }
 
-    public void setRespostaIshihara(int respostaIshihara) {
-        this.respostaIshihara = respostaIshihara;
+    public void setRespostasIshihara(int[] respostasIshihara) {
+        this.respostasIshihara = respostasIshihara;
     }
 
     public String[] getAvaliacoes() {
@@ -73,8 +77,14 @@ public class Avaliador {
         writer.name("idade").value(idade);
         writer.name("escolaridade").value(escolaridade);
         writer.name("experiencia").value(experiencia);
-        writer.name("respostaIshihara").value(respostaIshihara);
         writer.name("sexo").value(sexo == SEXO_FEMININO ? "F" : "M");
+
+        writer.name("respostas_ishihara");
+        writer.beginArray();
+        for (int resposta : respostasIshihara){
+            writer.value(resposta);
+        }
+        writer.endArray();
 
         writer.name("avaliacoes");
         writer.beginArray();

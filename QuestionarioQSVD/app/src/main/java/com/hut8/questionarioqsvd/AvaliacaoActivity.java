@@ -17,10 +17,10 @@ import android.widget.Toast;
 public class AvaliacaoActivity extends AppCompatActivity {
     RadioGroup radioGroup;
 
-    final static int N_AVALIACOES = 8;
+
     final static String stringAvalicao = "Avaliação número ";
 
-    String avaliacoes[] = new String[N_AVALIACOES];
+    String avaliacoes[] = new String[MainActivity.N_AVALIACOES_VIDEO];
     int cont = 0;
 
     @Override
@@ -52,7 +52,7 @@ public class AvaliacaoActivity extends AppCompatActivity {
                     ++cont;
                     Log.d("avaliacao", "onClick: "+ cont );
 
-                    if( cont == N_AVALIACOES ){
+                    if( cont == MainActivity.N_AVALIACOES_VIDEO ){
                         Intent returnIntent = new Intent();
                         returnIntent.putExtra(MainActivity.AVALIACAO_DO_VIDEO, avaliacoes);
                         setResult(Activity.RESULT_OK, returnIntent);
