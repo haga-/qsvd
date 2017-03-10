@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup radioGroup;
     Avaliador avaliador;
 
-    final static int N_AVALIACOES_VIDEO = 8;
+    final static int N_AVALIACOES_VIDEO = 14;
     final static int N_AVALIACOES_ISHIHARA = 9;
 
     final static int PERMISSAO_GRAVAR_ARQUIVO = 12;
