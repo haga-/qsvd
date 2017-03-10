@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -21,6 +22,8 @@ public class AvaliacaoActivity extends AppCompatActivity {
     final static String stringAvalicao = "Avaliação número ";
 
     String avaliacoes[] = new String[MainActivity.N_AVALIACOES_VIDEO];
+    final int[] ids_imagens = new int[] { R.mipmap.avaliacao0, R.mipmap.avaliacao1, R.mipmap.avaliacao2, R.mipmap.avaliacao3,
+                                        R.mipmap.avaliacao4, R.mipmap.avaliacao5, R.mipmap.avaliacao6 };
     int cont = 0;
 
     @Override
@@ -29,6 +32,9 @@ public class AvaliacaoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_avaliacao);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        final ImageView imageView = (ImageView) findViewById(R.id.imageQuadroVideo);
+        imageView.setImageResource(ids_imagens[cont]);
 
         final TextView labelAvaliacao = (TextView) findViewById(R.id.labelAvaliacao);
         labelAvaliacao.setText(stringAvalicao+String.valueOf(cont+1));
@@ -61,6 +67,9 @@ public class AvaliacaoActivity extends AppCompatActivity {
                     else {
                         radioGroup.clearCheck();
                         labelAvaliacao.setText(stringAvalicao + String.valueOf(cont + 1));
+                        if (cont % 2 == 0){ // se cont é par, ainda é a mesma imagem, mesmo vídeo, mas outra avaliação
+                            imageView.setImageResource(ids_imagens[cont]);
+                        }
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "Por favor, selecione uma das opções.", Toast.LENGTH_SHORT).show();
