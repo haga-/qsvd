@@ -18,6 +18,7 @@
         android:layout_marginBottom="10dp"
         android:textColor="@color/colorPrimaryText"
         android:textSize="16sp"
+        android:textAlignment="center"
         />
     <ImageView
         android:id="@+id/imageQuadroVideo"
@@ -25,7 +26,8 @@
         android:layout_height="150dp"
         android:contentDescription="@string/qual_imagem_esta_avaliando"
         android:layout_marginTop="3dp"
-        android:layout_marginBottom="3dp"/>
+        android:layout_marginBottom="3dp"
+        android:layout_below="@id/labelAvaliacao"/>
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/labelQualidade"

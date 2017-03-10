@@ -68,7 +68,7 @@ public class AvaliacaoActivity extends AppCompatActivity {
                         radioGroup.clearCheck();
                         labelAvaliacao.setText(stringAvalicao + String.valueOf(cont + 1));
                         if (cont % 2 == 0){ // se cont é par, ainda é a mesma imagem, mesmo vídeo, mas outra avaliação
-                            imageView.setImageResource(ids_imagens[cont]);
+                            imageView.setImageResource(ids_imagens[cont/2]);
                         }
                     }
                 } else {
