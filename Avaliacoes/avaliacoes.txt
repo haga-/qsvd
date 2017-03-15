@@ -1,7 +1,7 @@
 [{
   "nome": "Túlio Isaak da Silva Barbosa",
   "idade": "26",
-  "escolaridade": "",
+  "escolaridade": "Graduação em Andamento",
   "experiencia": 1,
   "sexo": "M",
   "respostas_ishihara": [
@@ -141,15 +141,15 @@
   "experiencia": 1,
   "sexo": "M",
   "respostas_ishihara": [
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1,
-    -1
+    42,
+    12,
+    8,
+    5,
+    74,
+    2,
+    97,
+    5,
+    73
   ],
   "avaliacoes": [
     "Imperceptível",
