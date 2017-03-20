@@ -711,5 +711,39 @@
     "Imperceptível",
     "Imperceptível"
   ]
+},
+{
+  "nome": "Jailton Gonçalves Fernandes",
+  "idade": "39",
+  "escolaridade": "Graduação em Andamento",
+  "experiencia": 0,
+  "sexo": "M",
+  "respostas_ishihara": [
+    42,
+    12,
+    8,
+    5,
+    74,
+    2,
+    97,
+    5,
+    73
+  ],
+  "avaliacoes": [
+    "Imperceptível",
+    "Imperceptível",
+    "Imperceptível",
+    "Imperceptível",
+    "Imperceptível",
+    "Imperceptível",
+    "Imperceptível",
+    "Imperceptível",
+    "Imperceptível",
+    "Imperceptível",
+    "Imperceptível",
+    "Imperceptível",
+    "Imperceptível",
+    "Imperceptível"
+  ]
 }
 ]
