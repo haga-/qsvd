@@ -67,7 +67,7 @@
   ]
 },
 {
-  "nome": "Valter Alberto Melgarejo Martins1",
+  "nome": "Valter Alberto Melgarejo Martins",
   "idade": "22",
   "escolaridade": "Graduação em Andamento",
   "experiencia": 0,
@@ -407,7 +407,7 @@
   ]
 },
 {
-  "nome": " Bruno Peraça Santi",
+  "nome": "Bruno Peraça Santi",
   "idade": "22",
   "escolaridade": "Graduação em Andamento",
   "experiencia": 0,
@@ -473,7 +473,8 @@
     "Perceptível mas não incomoda",
     "Perceptível mas não incomoda"
   ]
-}
+},
+{
   "nome": "Laura Quevedo Jurgina ",
   "idade": "22",
   "escolaridade": "Graduação em Andamento",
