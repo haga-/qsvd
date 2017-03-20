@@ -679,7 +679,7 @@
   ]
 },
 {
-  "nome": "Lucas Rego \nDa \nRocha",
+  "nome": "Lucas Rego Da Rocha",
   "idade": "22",
   "escolaridade": "Graduação em Andamento",
   "experiencia": 0,
