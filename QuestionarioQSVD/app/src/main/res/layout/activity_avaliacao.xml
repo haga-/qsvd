@@ -10,6 +10,25 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.hut8.questionarioqsvd.AvaliacaoActivity">
 
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/labelAvaliacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        />
+    <ImageView
+        android:id="@+id/imageQuadroVideo"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:contentDescription="@string/qual_imagem_esta_avaliando"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:layout_below="@id/labelAvaliacao"/>
+
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/labelQualidade"
         android:layout_width="match_parent"
@@ -18,12 +37,14 @@
         android:layout_marginBottom="10dp"
         android:textColor="@color/colorPrimaryText"
         android:textSize="16sp"
+        android:layout_below="@id/imageQuadroVideo"
         />
 
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/labelQualidade">
+        android:layout_below="@id/labelQualidade"
+        android:id="@+id/radioGroupMOS">
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

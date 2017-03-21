@@ -10,13 +10,24 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.hut8.questionarioqsvd.IshiharaActivity">
 
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/labelTesteIshihara"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        />
+
     <ImageView
         android:id="@+id/imageIshihara"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ishihara_23"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@mipmap/ishihara0"
         android:layout_centerHorizontal="true"
-        android:contentDescription="@string/ishiharaImgDescription"/>
+        android:contentDescription="@string/ishiharaImgDescription"
+        android:layout_below="@id/labelTesteIshihara"/>
 
     <android.support.v7.widget.AppCompatEditText
         android:id="@+id/editTextIshihara"
@@ -24,7 +35,15 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:hint="@string/ishihara"
-        android:layout_below="@id/imageIshihara"/>
+        android:layout_below="@id/imageIshihara" />
+
+    <android.support.v7.widget.AppCompatCheckBox
+        android:id="@+id/checkBoxIshihara"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/nao_enxergo"
+        android:textColor="@color/colorSecondaryText"
+        android:layout_below="@id/editTextIshihara"/>
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/buttonProximoIshihara"
